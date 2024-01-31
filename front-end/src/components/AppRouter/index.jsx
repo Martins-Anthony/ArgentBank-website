@@ -6,6 +6,7 @@ import Home from "../../pages/Home";
 import Footer from "../layout/Footer";
 import SignIn from "../../pages/SignIn";
 import Users from "../../pages/Users";
+import Error from "../layout/Error";
 
 function AppRouter() {
   return (
@@ -15,6 +16,7 @@ function AppRouter() {
       <Route exact path="/" element={<Home />} />
       <Route path="/sign-in" element={<SignIn />} />
       <Route path="/user" element={<Users />} />
+      <Route path="*" element={<Error />} />
     </Routes>
     <Footer />
    </Router>

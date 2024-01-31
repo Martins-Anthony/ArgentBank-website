@@ -293,3 +293,56 @@ body, #root {
     width: 200px;
   }
 }
+
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  row-gap: 7.06rem;
+  color: #00bc77;
+  margin: 7.06rem 0;
+}
+
+.error-title {
+  font-size: 6rem;
+  font-weight: 700;
+  margin: 0;
+  height: 6.18rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-subtitle {
+  font-size: 1.12rem;
+  width: 16.25rem;
+  margin: 0;
+}
+
+.error-link {
+  font-size: 0.87rem;
+  text-decoration: none;
+}
+
+@media (min-width: 920px) {
+  .error-container {
+    margin: 8.68rem 0;
+    row-gap: 8.68rem;
+  }
+
+  .error-title {
+    font-size: 18rem;
+    height: 16.43rem;
+  }
+
+  .error-subtitle {
+    font-size: 2.25rem;
+    width: 100%;
+  }
+
+  .error-link {
+    font-size: 1.12rem;
+  }
+}
