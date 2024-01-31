@@ -5,6 +5,7 @@ import "../../styles/index.css";
 import Home from "../../pages/Home";
 import Footer from "../layout/Footer";
 import SignIn from "../../pages/SignIn";
+import Users from "../../pages/Users";
 
 function AppRouter() {
   return (
@@ -13,6 +14,7 @@ function AppRouter() {
     <Routes>
       <Route exact path="/" element={<Home />} />
       <Route path="/sign-in" element={<SignIn />} />
+      <Route path="/user" element={<Users />} />
     </Routes>
     <Footer />
    </Router>

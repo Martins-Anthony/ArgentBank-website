@@ -18,7 +18,10 @@ body, #root {
 }
 
 .bg-dark {
-  background-color: #12002b;
+  background-color: #12002b; 
+}
+
+.padding-signIn {
   padding-top: 3rem;
 }
 
