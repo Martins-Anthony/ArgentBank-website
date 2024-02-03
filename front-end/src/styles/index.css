@@ -6,7 +6,8 @@ html {
   color: #2c3e50;
 }
 
-body, #root {
+body,
+#root {
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -18,7 +19,7 @@ body, #root {
 }
 
 .bg-dark {
-  background-color: #12002b; 
+  background-color: #12002b;
 }
 
 .padding-signIn {
@@ -174,7 +175,7 @@ body, #root {
   background-color: white;
   width: 300px;
   margin: 0 auto;
-  
+
   padding: 2rem;
 }
 

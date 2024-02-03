@@ -1,5 +1,4 @@
-
-function Feature({cover, alt, title, text}) {
+function Feature({ cover, alt, title, text }) {
   return (
     <div className="feature-item">
       <img src={cover} alt={alt} className="feature-icon" />
