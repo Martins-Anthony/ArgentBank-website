@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 function Feature({ cover, alt, title, text }) {
   return (
     <div className="feature-item">
@@ -6,6 +8,13 @@ function Feature({ cover, alt, title, text }) {
       <p>{text}</p>
     </div>
   )
+}
+
+Feature.propTypes = {
+  cover: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 }
 
 export default Feature
