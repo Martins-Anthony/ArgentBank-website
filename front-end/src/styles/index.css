@@ -76,7 +76,7 @@ body,
 }
 
 .hero {
-  background-image: url('../assets/bank-tree.jpeg');
+  background-image: url('../assets/mobile/bank-tree.avif');
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -109,6 +109,7 @@ body,
   .hero {
     height: 400px;
     background-position: 0% 33%;
+    background-image: url('../assets/desktop/bank-tree.avif');
   }
 
   .hero-content {
@@ -281,7 +282,14 @@ body,
   color: #fff;
 }
 
+@media (min-width: 720px) and (max-width: 920px) {
+  .hero {
+    background-image: url('../assets/tablet/bank-tree.avif');
+  }
+}
+
 @media (min-width: 720px) {
+
   .account {
     flex-direction: row;
   }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 function Feature({ cover, alt, title, text }) {
   return (
     <div className="feature-item">
-      <img src={cover} alt={alt} className="feature-icon" />
+      <img src={cover} alt={alt} className="feature-icon" width={'6.25rem'} height={'100px'} />
       <h3 className="feature-item-title">{title}</h3>
       <p>{text}</p>
     </div>
