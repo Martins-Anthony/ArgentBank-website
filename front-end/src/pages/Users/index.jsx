@@ -1,3 +1,5 @@
+import Host from '../../components/Host'
+
 function User() {
   return (
     <main className="main bg-dark">
@@ -5,7 +7,7 @@ function User() {
         <h1>
           Welcome back
           <br />
-          Tony Jarvis!
+          <Host />!
         </h1>
         <button className="edit-button">Edit Name</button>
       </div>
