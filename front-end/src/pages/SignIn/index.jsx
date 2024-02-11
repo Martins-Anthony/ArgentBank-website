@@ -1,4 +1,4 @@
-import Form from '../../components/Forms'
+import Authentication from '../../components/Authentication'
 
 function SignIn() {
   return (
@@ -6,7 +6,7 @@ function SignIn() {
       <section className="sign-in-content">
         <i className="fa fa-user-circle sign-in-icon"></i>
         <h1>Sign In</h1>
-        <Form />
+        <Authentication />
       </section>
     </main>
   )

@@ -1,14 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-
-let state = {
-  value: null,
-  list: [],
-}
-
-const reducer = () => {}
+import authenticationReducer from '../Authentication/authenticationSlice'
 
 export const store = configureStore({
-  preloadedState: state,
-  reducer,
   devTools: true,
+  reducer: {
+    authentication: authenticationReducer,
+  },
 })
