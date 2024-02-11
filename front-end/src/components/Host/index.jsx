@@ -1,13 +1,15 @@
 import { useSelector } from 'react-redux'
-import { selectProfile } from '../../components/App/selectors'
+import { selectProfile } from '../App/selectors'
 
 function Host() {
   const user = useSelector(selectProfile)
-  return (
-    <>
-      {user.firstName} {user.lastName}
-    </>
-  )
+  if (user) {
+    return (
+      <>
+        {user.firstName} {user.lastName}
+      </>
+    )
+  }
 }
 
 export default Host
