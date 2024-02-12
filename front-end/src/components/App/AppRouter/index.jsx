@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import NavBar from '../../layout/NavBar'
 import Home from '../../../pages/Home'
 import Footer from '../../layout/Footer'
@@ -17,7 +17,7 @@ function AppRouter() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/sign-in" element={<SignIn />} />
-        {user ? <Route path="/user" element={<Users />} /> : null}
+        <Route path="/user" element={user ? <Users /> : <Navigate to="/sign-in" />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
