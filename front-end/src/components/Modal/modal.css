@@ -15,6 +15,13 @@
   border: 1px solid #888;
   width: 80%;
   max-width: 25rem;
+  border-radius: 25px;
+}
+
+.modal-content-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .close {

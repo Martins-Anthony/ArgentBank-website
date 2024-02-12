@@ -12,7 +12,7 @@ function Modal({ isOpen, onClose, children }) {
             <span className="close" onClick={onClose}>
               &times;
             </span>
-            {children}
+            <div className="modal-content-message">{children}</div>
           </div>
         </div>
       )}
