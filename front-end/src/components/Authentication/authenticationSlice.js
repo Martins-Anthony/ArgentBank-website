@@ -42,11 +42,15 @@ const authenticationSlice = createSlice({
     profile: null,
     loading: false,
     error: null,
+    modalError: false,
   },
   reducers: {
     userLogout: (state) => {
       state.user = null
       state.profile = null
+    },
+    closeModalError: (state) => {
+      state.modalError = false
     },
   },
   extraReducers: (builder) => {
@@ -59,10 +63,12 @@ const authenticationSlice = createSlice({
         state.loading = false
         state.user = action.payload
         state.error = null
+        state.modalError = false
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false
         state.error = action.error.message
+        state.modalError = true
       })
       .addCase(profileUser.fulfilled, (state, action) => {
         state.loading = false
@@ -75,5 +81,5 @@ const authenticationSlice = createSlice({
   },
 })
 
-export const { userLogout } = authenticationSlice.actions
+export const { userLogout, closeModalError } = authenticationSlice.actions
 export default authenticationSlice.reducer

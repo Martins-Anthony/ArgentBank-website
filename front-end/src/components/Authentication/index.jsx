@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser, profileUser } from './authenticationSlice'
 import { selectUser } from '../App/selectors'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function Authentication() {
   const dispatch = useDispatch()
   const user = useSelector(selectUser)
   const navigate = useNavigate()
+  const form = useRef()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -16,6 +17,7 @@ function Authentication() {
       password: event.target.password.value,
     }
     dispatch(loginUser(id))
+    form.current.reset()
   }
 
   useEffect(() => {
@@ -26,14 +28,14 @@ function Authentication() {
   }, [user, dispatch])
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form ref={form} onSubmit={handleSubmit}>
       <div className="input-wrapper">
         <label htmlFor="username">Username</label>
-        <input type="text" id="username" />
+        <input type="text" id="username" required />
       </div>
       <div className="input-wrapper">
         <label htmlFor="password">Password</label>
-        <input type="password" id="password" />
+        <input type="password" id="password" required />
       </div>
       <div className="input-remember">
         <input type="checkbox" id="remember-me" />
