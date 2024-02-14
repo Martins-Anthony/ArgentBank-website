@@ -10,6 +10,7 @@ function LinkSignInAndOut() {
 
   const handleLogout = () => {
     dispatch(userLogout())
+    localStorage.removeItem('reduxState')
   }
 
   if (user) {
