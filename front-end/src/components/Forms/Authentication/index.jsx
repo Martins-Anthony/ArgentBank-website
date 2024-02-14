@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser, profileUser, resetError } from './authenticationSlice'
-import { openModal, closeModal } from '../Modal/errorModalSlice'
-import { selectUser, selectErrorModal, selectError } from '../App/selectors'
+import { openModal, closeModal } from '../../Modal/errorModalSlice'
+import { selectUser, selectErrorModal, selectError } from '../../App/selectors'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as keyRegex from './keyRegex'
-import Modal from '../Modal'
+import Modal from '../../Modal'
 
 function Authentication() {
   const dispatch = useDispatch()

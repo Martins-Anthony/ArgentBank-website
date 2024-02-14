@@ -1,17 +1,10 @@
 import Account from '../../components/Account'
-import Host from '../../components/Host'
+import Header from '../../components/layout/Header'
 
 function User() {
   return (
     <main className="main bg-dark">
-      <div className="header">
-        <h1>
-          Welcome back
-          <br />
-          <Host />!
-        </h1>
-        <button className="edit-button">Edit Name</button>
-      </div>
+      <Header />
       <h2 className="sr-only">Accounts</h2>
       <Account
         accountTitle={'Argent Bank Checking'}

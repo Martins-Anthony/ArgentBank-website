@@ -1,4 +1,4 @@
-import Authentication from '../../components/Authentication'
+import Authentication from '../../components/Forms/Authentication'
 
 function SignIn() {
   return (

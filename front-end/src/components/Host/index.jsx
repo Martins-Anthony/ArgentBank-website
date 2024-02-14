@@ -1,13 +1,11 @@
-import { useSelector } from 'react-redux'
-import { selectProfile } from '../App/selectors'
-
-function Host() {
-  const user = useSelector(selectProfile)
+function Host({ user }) {
   if (user) {
     return (
-      <>
-        {user.firstName} {user.lastName}
-      </>
+      <h1>
+        Welcome back
+        <br />
+        {user.firstName} {user.lastName}!
+      </h1>
     )
   }
 }

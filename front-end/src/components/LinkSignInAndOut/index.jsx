@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectUser, selectProfile } from '../App/selectors'
-import { userLogout } from '../Authentication/authenticationSlice'
+import { userLogout } from '../../components/Forms/Authentication/authenticationSlice'
 
 function LinkSignInAndOut() {
   const user = useSelector(selectUser)
