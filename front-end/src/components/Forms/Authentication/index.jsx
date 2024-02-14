@@ -64,7 +64,7 @@ function Authentication() {
         </div>
         <div className="input-wrapper">
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" required />
+          <input type="current-password" id="password" required />
         </div>
         <div className="input-remember">
           <input type="checkbox" id="remember-me" />
