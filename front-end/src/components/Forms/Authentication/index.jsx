@@ -1,21 +1,31 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser, profileUser, resetError } from './authenticationSlice'
 import { openModal, closeModal } from '../../Modal/errorModalSlice'
-import { selectUser, selectErrorModal, selectError } from '../../App/selectors'
+import {
+  selectUser,
+  selectErrorModal,
+  selectError,
+  selectRememberMeChecked,
+} from '../../App/selectors'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as keyRegex from './keyRegex'
 import Modal from '../../Modal'
+import RememberMe from '../RememberMe'
 
 function Authentication() {
   const dispatch = useDispatch()
   const user = useSelector(selectUser)
+  const userRememberChecked = useSelector(selectRememberMeChecked).checked
   const { isOpen, errorMessage } = useSelector((state) => state.errorModal)
   const handleModal = useSelector(selectErrorModal).isOpen
   const loginRejected = useSelector(selectError)
-
   const navigate = useNavigate()
   const form = useRef()
+
+  const userRemember = localStorage.getItem('idUser')
+    ? JSON.parse(localStorage.getItem('idUser'))
+    : {}
 
   const handleCloseModal = (event) => {
     event.preventDefault()
@@ -27,6 +37,10 @@ function Authentication() {
     const id = {
       email: event.target.username.value,
       password: event.target.password.value,
+    }
+
+    if (userRememberChecked) {
+      localStorage.setItem('idUser', JSON.stringify(id))
     }
 
     if (!keyRegex.isEmailValid(id.email)) {
@@ -43,7 +57,7 @@ function Authentication() {
 
   useEffect(() => {
     if (loginRejected === 'Rejected') {
-      dispatch(openModal('Username and Password invalid'))
+      dispatch(openModal('Username or Password invalid'))
       dispatch(resetError())
     }
   }, [loginRejected])
@@ -60,16 +74,25 @@ function Authentication() {
       <form ref={form} onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <label htmlFor="username">Username</label>
-          <input type="text" id="username" required />
+          <input
+            type="text"
+            id="username"
+            autoComplete="username"
+            defaultValue={userRemember.email}
+            required
+          />
         </div>
         <div className="input-wrapper">
           <label htmlFor="password">Password</label>
-          <input type="current-password" id="password" required />
+          <input
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            defaultValue={userRemember.password}
+            required
+          />
         </div>
-        <div className="input-remember">
-          <input type="checkbox" id="remember-me" />
-          <label htmlFor="remember-me">Remember me</label>
-        </div>
+        <RememberMe />
         <button type="submit" className="sign-in-button">
           Sign In
         </button>

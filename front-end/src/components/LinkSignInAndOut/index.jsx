@@ -1,16 +1,20 @@
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectUser, selectProfile } from '../App/selectors'
+import { selectUser, selectProfile, selectRememberMeChecked } from '../App/selectors'
 import { userLogout } from '../../components/Forms/Authentication/authenticationSlice'
 
 function LinkSignInAndOut() {
   const user = useSelector(selectUser)
   const userProfile = useSelector(selectProfile)
+  const userRememberChecked = useSelector(selectRememberMeChecked).checked
   const dispatch = useDispatch()
 
   const handleLogout = () => {
     dispatch(userLogout())
     localStorage.removeItem('reduxState')
+    if (!userRememberChecked) {
+      localStorage.removeItem('idUser')
+    }
   }
 
   if (user) {
