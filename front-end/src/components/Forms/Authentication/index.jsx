@@ -9,7 +9,6 @@ import {
 } from '../../App/selectors'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import * as keyRegex from './keyRegex'
 import Modal from '../../Modal'
 import RememberMe from '../RememberMe'
 
@@ -43,15 +42,7 @@ function Authentication() {
       localStorage.setItem('idUser', JSON.stringify(id))
     }
 
-    if (!keyRegex.isEmailValid(id.email)) {
-      dispatch(openModal('Username invalid'))
-    }
-    if (!keyRegex.isPasswordValid(id.password)) {
-      dispatch(openModal('Password invalid'))
-    }
-    if (keyRegex.isEmailValid(id.email) && keyRegex.isPasswordValid(id.password)) {
-      dispatch(loginUser(id))
-    }
+    dispatch(loginUser(id))
     form.current.reset()
   }
 

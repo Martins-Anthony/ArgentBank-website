@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-
 function Feature({ cover, alt, title, text }) {
   return (
     <div className="feature-item">

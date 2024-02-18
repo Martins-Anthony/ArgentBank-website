@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { urlApi } from '../adresseApi'
 
 export const loginUser = createAsyncThunk('authentication/loginUser', async (id, thunkAPI) => {
   try {
-    const response = await fetch('http://localhost:3001/api/v1/user/login', {
+    const response = await fetch(`${urlApi}user/login`, {
       method: 'POST',
       body: JSON.stringify(id),
       headers: {
@@ -20,7 +21,7 @@ export const profileUser = createAsyncThunk(
   'authentication/profileUser',
   async (user, thunkAPI) => {
     try {
-      const response = await fetch('http://localhost:3001/api/v1/user/profile', {
+      const response = await fetch(`${urlApi}user/profile`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,6 +52,9 @@ const authenticationSlice = createSlice({
     resetError: (state) => {
       state.error = null
     },
+    setUserName: (state, action) => {
+      state.profile.userName = action.payload
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -78,5 +82,5 @@ const authenticationSlice = createSlice({
   },
 })
 
-export const { userLogout, resetError } = authenticationSlice.actions
+export const { userLogout, resetError, setUserName } = authenticationSlice.actions
 export default authenticationSlice.reducer

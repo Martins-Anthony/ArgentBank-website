@@ -1,13 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
-  isOpen: false,
-  errorMessage: '',
-}
-
 const errorModalSlice = createSlice({
   name: 'errorModal',
-  initialState,
+  initialState: {
+    isOpen: false,
+    errorMessage: '',
+  },
   reducers: {
     openModal: (state, action) => {
       state.isOpen = true

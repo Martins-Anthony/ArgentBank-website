@@ -1,17 +1,21 @@
 import Host from '../../../components/Host'
-import React, { useState } from 'react'
+import React from 'react'
 import EditModeName from '../../Forms/EditUserName'
-import { useSelector } from 'react-redux'
-import { selectProfile } from '../../App/selectors'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectProfile, selectEditMode } from '../../App/selectors'
+import { handleEditMode } from '../../Forms/EditUserName/editUserNameSlice'
 
 function Header() {
   const userProfile = useSelector(selectProfile)
-  const [editMode, setEditMode] = useState(false)
-  const handleChange = () => {
-    setEditMode(!editMode)
+  const editUserNameMode = useSelector(selectEditMode)
+  const dispatch = useDispatch()
+
+  const handleChange = (event) => {
+    event.preventDefault()
+    dispatch(handleEditMode())
   }
 
-  if (!editMode) {
+  if (!editUserNameMode) {
     return (
       <header className="header">
         <Host user={userProfile} />
@@ -23,7 +27,7 @@ function Header() {
   } else {
     return (
       <header className="header">
-        <EditModeName onClick={handleChange} user={userProfile} />
+        <EditModeName onClick={handleChange} userProfile={userProfile} />
       </header>
     )
   }

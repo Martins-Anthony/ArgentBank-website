@@ -1,8 +1,16 @@
+import { useDispatch } from 'react-redux'
+import { editUserName, handleEditMode } from './editUserNameSlice'
 import './styleEditUserName.css'
 
-function EditModeName({ onClick, user }) {
+function EditModeName({ onClick, userProfile }) {
+  const dispatch = useDispatch()
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    dispatch(editUserName(event.target.username.value))
+    dispatch(handleEditMode())
+  }
   return (
-    <form className="form-style">
+    <form className="form-style" onSubmit={handleSubmit}>
       <h1>Edit user info</h1>
       <div className="input-wrapper-edit">
         <label htmlFor="username">User name :</label>
@@ -13,7 +21,7 @@ function EditModeName({ onClick, user }) {
         <input
           type="text"
           id="firstname"
-          value={user.firstName}
+          value={userProfile.firstName}
           readOnly
           className="placeholder-style"
         />
@@ -23,13 +31,15 @@ function EditModeName({ onClick, user }) {
         <input
           type="text"
           id="lastname"
-          value={user.lastName}
+          value={userProfile.lastName}
           readOnly
           className="placeholder-style"
         />
       </div>
       <div className="button-container">
-        <button className="edit-button">Save</button>
+        <button type="submit" className="edit-button">
+          Save
+        </button>
         <button className="edit-button" onClick={onClick}>
           Cancel
         </button>
