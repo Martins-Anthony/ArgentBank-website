@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectUser, selectProfile, selectRememberMeChecked } from '../App/selectors'
-import { userLogout } from '../../components/Forms/Authentication/authenticationSlice'
+import { userLogout } from '../../containers/Forms/Authentication/authenticationSlice'
+import { resetEditMode } from '../../containers/Forms/EditUserName/editUserNameSlice'
 
 function LinkSignInAndOut() {
   const user = useSelector(selectUser)
@@ -11,6 +12,7 @@ function LinkSignInAndOut() {
 
   const handleLogout = () => {
     dispatch(userLogout())
+    dispatch(resetEditMode())
     localStorage.removeItem('reduxState')
     if (!userRememberChecked) {
       localStorage.removeItem('idUser')

@@ -1,4 +1,4 @@
-import Authentication from '../../components/Forms/Authentication'
+import Authentication from '../../containers/Forms/Authentication'
 
 function SignIn() {
   return (

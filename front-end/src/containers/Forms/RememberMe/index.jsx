@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectRememberMeChecked } from '../../App/selectors'
+import { selectRememberMeChecked } from '../../../components/App/selectors'
 import { userChecked } from './rememberMeSlice'
+import Field, { FIELD_TYPES } from '../../../components/Field'
 
 function RememberMe() {
   const userRememberChecked = useSelector(selectRememberMeChecked).checked
@@ -19,15 +20,14 @@ function RememberMe() {
   })
 
   return (
-    <div className="input-remember">
-      <input
-        type="checkbox"
-        id="remember-me"
-        checked={userRememberChecked}
-        onChange={handleRememberMe}
-      />
-      <label htmlFor="remember-me">Remember me</label>
-    </div>
+    <Field
+      type={FIELD_TYPES.INPUT_CHECKBOX}
+      id={'remember-me'}
+      checked={userRememberChecked}
+      onChange={handleRememberMe}
+      label={'Remember me'}
+      containerClassName={'input-remember'}
+    />
   )
 }
 

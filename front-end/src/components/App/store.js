@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import authenticationReducer from '../../components/Forms/Authentication/authenticationSlice'
+import authenticationReducer from '../../containers/Forms/Authentication/authenticationSlice'
 import errorModalReducer from '../Modal/errorModalSlice'
-import rememberMeReducer from '../Forms/RememberMe/rememberMeSlice'
-import editUserNameReduccer from '../Forms/EditUserName/editUserNameSlice'
+import rememberMeReducer from '../../containers/Forms/RememberMe/rememberMeSlice'
+import editUserNameReducer from '../../containers/Forms/EditUserName/editUserNameSlice'
 
 const persistedState = localStorage.getItem('reduxState')
   ? JSON.parse(localStorage.getItem('reduxState'))
@@ -14,7 +14,7 @@ export const store = configureStore({
     authentication: authenticationReducer,
     errorModal: errorModalReducer,
     rememberMe: rememberMeReducer,
-    editUserName: editUserNameReduccer,
+    editUserName: editUserNameReducer,
   },
   preloadedState: persistedState,
 })

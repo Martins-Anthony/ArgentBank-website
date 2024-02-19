@@ -1,22 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser, profileUser, resetError } from './authenticationSlice'
-import { openModal, closeModal } from '../../Modal/errorModalSlice'
+import { openModal, closeModal } from '../../../components/Modal/errorModalSlice'
 import {
   selectUser,
   selectErrorModal,
   selectError,
   selectRememberMeChecked,
-} from '../../App/selectors'
+} from '../../../components/App/selectors'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Modal from '../../Modal'
+import Modal from '../../../components/Modal'
 import RememberMe from '../RememberMe'
+import Field, { FIELD_TYPES } from '../../../components/Field'
 
 function Authentication() {
   const dispatch = useDispatch()
   const user = useSelector(selectUser)
   const userRememberChecked = useSelector(selectRememberMeChecked).checked
-  const { isOpen, errorMessage } = useSelector((state) => state.errorModal)
+  const { errorMessage } = useSelector((state) => state.errorModal)
   const handleModal = useSelector(selectErrorModal).isOpen
   const loginRejected = useSelector(selectError)
   const navigate = useNavigate()
@@ -59,30 +60,23 @@ function Authentication() {
       navigate('/user')
     }
   }, [user, dispatch])
-
   return (
     <>
       <form ref={form} onSubmit={handleSubmit}>
-        <div className="input-wrapper">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            autoComplete="username"
-            defaultValue={userRemember.email}
-            required
-          />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            defaultValue={userRemember.password}
-            required
-          />
-        </div>
+        <Field
+          type={FIELD_TYPES.INPUT_TEXT}
+          containerClassName={'input-wrapper'}
+          id={'username'}
+          label={'Username'}
+          defaultValue={userRemember.email}
+        />
+        <Field
+          type={FIELD_TYPES.INPUT_PASSWORD}
+          containerClassName={'input-wrapper'}
+          id={'password'}
+          label={'Password'}
+          defaultValue={userRemember.password}
+        />
         <RememberMe />
         <button type="submit" className="sign-in-button">
           Sign In

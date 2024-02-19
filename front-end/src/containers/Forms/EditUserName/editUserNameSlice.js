@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { urlApi } from '../adresseApi'
-import { setUserName } from '../Authentication/authenticationSlice'
-import { profileUser } from '../Authentication/authenticationSlice'
+import { setUserName, profileUser } from '../Authentication/authenticationSlice'
 
 export const editUserName = createAsyncThunk(
   'editUserName/editUserName',
@@ -21,7 +20,6 @@ export const editUserName = createAsyncThunk(
 
       dispatch(setUserName(data.userName))
       dispatch(profileUser(user))
-
       return
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
@@ -43,6 +41,9 @@ const editUserNameSlice = createSlice({
     handleEditMode: (state) => {
       state.editMode = !state.editMode
     },
+    resetEditMode: (state) => {
+      state.editMode = false
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -60,5 +61,5 @@ const editUserNameSlice = createSlice({
   },
 })
 
-export const { resetError, handleEditMode } = editUserNameSlice.actions
+export const { resetError, handleEditMode, resetEditMode } = editUserNameSlice.actions
 export default editUserNameSlice.reducer
