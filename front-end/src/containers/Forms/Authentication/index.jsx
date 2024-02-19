@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser, profileUser, resetError } from './authenticationSlice'
-import { openModal, closeModal } from '../../../components/Modal/errorModalSlice'
+import { openModal, closeModal } from '../../Modal/errorModalSlice'
 import {
   selectUser,
   selectErrorModal,
@@ -9,7 +9,7 @@ import {
 } from '../../../components/App/selectors'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Modal from '../../../components/Modal'
+import Modal from '../../Modal'
 import RememberMe from '../RememberMe'
 import Field, { FIELD_TYPES } from '../../../components/Field'
 

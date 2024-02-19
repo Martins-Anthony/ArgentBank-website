@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import authenticationReducer from '../../containers/Forms/Authentication/authenticationSlice'
-import errorModalReducer from '../Modal/errorModalSlice'
+import errorModalReducer from '../../containers/Modal/errorModalSlice'
 import rememberMeReducer from '../../containers/Forms/RememberMe/rememberMeSlice'
 import editUserNameReducer from '../../containers/Forms/EditUserName/editUserNameSlice'
 
