@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { urlApi } from '../adresseApi'
+import { urlApi } from '../../../utils/api/adresseApi'
 import { setUserName, profileUser } from '../Authentication/authenticationSlice'
 
 export const editUserName = createAsyncThunk(
