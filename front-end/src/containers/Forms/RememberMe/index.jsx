@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectRememberMeChecked } from '../../../components/App/selectors'
+import { selectRememberMeChecked } from '../../../components/App/store/selectors'
 import { userChecked } from './rememberMeSlice'
 import Field, { FIELD_TYPES } from '../../../components/Field'
 

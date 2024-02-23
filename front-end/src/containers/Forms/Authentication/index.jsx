@@ -6,7 +6,7 @@ import {
   selectErrorModal,
   selectError,
   selectRememberMeChecked,
-} from '../../../components/App/selectors'
+} from '../../../components/App/store/selectors'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Modal from '../../Modal'

@@ -6,7 +6,7 @@ import Footer from '../../layout/Footer'
 import SignIn from '../../../pages/SignIn'
 import Users from '../../../pages/Users'
 import Error from '../../layout/Error'
-import { selectUser } from '../selectors'
+import { selectUser } from '../store/selectors'
 import { useSelector } from 'react-redux'
 
 function AppRouter() {

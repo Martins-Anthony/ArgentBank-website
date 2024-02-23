@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { selectUser, selectProfile, selectRememberMeChecked } from '../App/selectors'
+import { selectUser, selectProfile, selectRememberMeChecked } from '../App/store/selectors'
 import { userLogout } from '../../containers/Forms/Authentication/authenticationSlice'
 import { resetEditMode } from '../../containers/Forms/EditUserName/editUserNameSlice'
 import SignIn from '../SignIn'
