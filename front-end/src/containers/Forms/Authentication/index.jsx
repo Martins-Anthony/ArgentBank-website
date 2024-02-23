@@ -7,7 +7,7 @@ import {
   selectError,
   selectRememberMeChecked,
 } from '../../../components/App/store/selectors'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Modal from '../../Modal'
 import RememberMe from '../RememberMe'
@@ -21,7 +21,6 @@ function Authentication() {
   const handleModal = useSelector(selectErrorModal).isOpen
   const loginRejected = useSelector(selectError)
   const navigate = useNavigate()
-  const form = useRef()
 
   const userRemember = localStorage.getItem('idUser')
     ? JSON.parse(localStorage.getItem('idUser'))
@@ -44,7 +43,6 @@ function Authentication() {
     }
 
     dispatch(loginUser(id))
-    form.current.reset()
   }
 
   useEffect(() => {
@@ -62,7 +60,7 @@ function Authentication() {
   }, [user, dispatch])
   return (
     <>
-      <form ref={form} onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <Field
           type={FIELD_TYPES.INPUT_TEXT}
           containerClassName={'input-wrapper'}
