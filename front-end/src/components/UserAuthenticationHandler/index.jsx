@@ -4,7 +4,7 @@ import { userLogout } from '../../containers/Forms/Authentication/authentication
 import { resetEditMode } from '../../containers/Forms/EditUserName/editUserNameSlice'
 import SignIn from '../SignIn'
 import SignOut from '../SignOut'
-function LinkSignInAndOut() {
+function UserAuthenticationHandler() {
   const user = useSelector(selectUser)
   const userProfile = useSelector(selectProfile)
   const userRememberChecked = useSelector(selectRememberMeChecked).checked
@@ -22,4 +22,4 @@ function LinkSignInAndOut() {
   return !user ? <SignIn /> : <SignOut userProfile={userProfile} onClick={handleLogout} />
 }
 
-export default LinkSignInAndOut
+export default UserAuthenticationHandler

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import Logo from '../Logo'
-import LinkSignInAndOut from '../../LinkSignInAndOut'
+import UserAuthenticationHandler from '../../UserAuthenticationHandler'
 
 function NavBar() {
   return (
@@ -9,7 +9,7 @@ function NavBar() {
         <Logo />
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
-      <LinkSignInAndOut />
+      <UserAuthenticationHandler />
     </nav>
   )
 }

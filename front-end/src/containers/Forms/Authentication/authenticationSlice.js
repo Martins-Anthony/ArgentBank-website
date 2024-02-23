@@ -71,6 +71,10 @@ const authenticationSlice = createSlice({
         state.loading = false
         state.error = action.error.message
       })
+      .addCase(profileUser.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
       .addCase(profileUser.fulfilled, (state, action) => {
         state.loading = false
         state.profile = action.payload
