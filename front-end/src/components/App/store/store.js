@@ -4,8 +4,8 @@ import errorModalReducer from '../../../containers/Modal/errorModalSlice'
 import rememberMeReducer from '../../../containers/Forms/RememberMe/rememberMeSlice'
 import editUserNameReducer from '../../../containers/Forms/EditUserName/editUserNameSlice'
 
-const persistedState = localStorage.getItem('reduxState')
-  ? JSON.parse(localStorage.getItem('reduxState'))
+const persistedState = sessionStorage.getItem('reduxState')
+  ? JSON.parse(sessionStorage.getItem('reduxState'))
   : {}
 
 export const store = configureStore({
@@ -20,5 +20,5 @@ export const store = configureStore({
 })
 
 store.subscribe(() => {
-  localStorage.setItem('reduxState', JSON.stringify(store.getState()))
+  sessionStorage.setItem('reduxState', JSON.stringify(store.getState()))
 })

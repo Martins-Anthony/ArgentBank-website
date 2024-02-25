@@ -13,7 +13,7 @@ function UserAuthenticationHandler() {
   const handleLogout = () => {
     dispatch(userLogout())
     dispatch(resetEditMode())
-    localStorage.removeItem('reduxState')
+    sessionStorage.removeItem('reduxState')
     if (!userRememberChecked) {
       localStorage.removeItem('idUser')
     }
