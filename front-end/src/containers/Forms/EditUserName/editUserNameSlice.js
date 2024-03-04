@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { urlApi } from '../../../utils/api/adresseApi'
-import { setUserName, profileUser } from '../Authentication/authenticationSlice'
+import { profileUser } from '../Authentication/authenticationSlice'
 
 export const editUserName = createAsyncThunk(
   'editUserName/editUserName',
@@ -16,9 +16,6 @@ export const editUserName = createAsyncThunk(
         },
         body: JSON.stringify({ userName: newUserName }),
       })
-      const data = await response.json()
-
-      dispatch(setUserName(data.userName))
       dispatch(profileUser(user))
       return
     } catch (error) {

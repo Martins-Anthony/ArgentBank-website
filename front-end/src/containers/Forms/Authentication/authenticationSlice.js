@@ -52,9 +52,6 @@ const authenticationSlice = createSlice({
     resetError: (state) => {
       state.error = null
     },
-    setUserName: (state, action) => {
-      state.profile.userName = action.payload
-    },
   },
   extraReducers: (builder) => {
     builder
@@ -86,5 +83,5 @@ const authenticationSlice = createSlice({
   },
 })
 
-export const { userLogout, resetError, setUserName } = authenticationSlice.actions
+export const { userLogout, resetError } = authenticationSlice.actions
 export default authenticationSlice.reducer
