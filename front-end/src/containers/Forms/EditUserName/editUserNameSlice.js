@@ -16,7 +16,9 @@ export const editUserName = createAsyncThunk(
         },
         body: JSON.stringify({ userName: newUserName }),
       })
-      dispatch(profileUser(user))
+      if (response.status === 200) {
+        dispatch(profileUser(user))
+      }
       return
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
